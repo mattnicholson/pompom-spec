@@ -1,0 +1,33 @@
+@layer base {
+}
+
+/* Boost rem size on large screens */
+
+html {
+	@apply xl:text-[1.25vw];
+}
+
+/* Helpers */
+
+.vstack {
+	@apply flex gap-4 flex-col;
+}
+
+.hstack {
+	@apply flex gap-4 flex-row;
+}
+
+.hscroller {
+	@apply text-center;
+	white-space: nowrap;
+	overflow-x: auto;
+
+	& > * {
+		@apply inline-block;
+		white-space: normal;
+	}
+}
+
+.padded {
+	@apply p-4 md:p-8;
+}

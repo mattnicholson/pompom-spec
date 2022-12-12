@@ -1,0 +1,44 @@
+.icon {
+	@apply font-icon w-[40px] h-[40px] text-[20px] relative;
+	&:after {
+		@apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2;
+		content: attr(data-icon);
+	}
+}
+
+.svg-icon {
+	@apply w-[40px] h-[40px] relative;
+
+	svg {
+		@apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2;
+	}
+}
+
+.code {
+	& > div {
+		@apply bg-rose-500/5 text-rose-500 p-2 text-[12px];
+
+		&.closed {
+			@apply rounded-full;
+		}
+
+		&.open {
+			@apply rounded-xl;
+		}
+	}
+
+	.icon {
+		@apply rounded-full hover:bg-white/50;
+	}
+
+	@apply mb-8;
+
+	&.code-flush {
+		@apply mb-0;
+	}
+
+	pre code {
+		@apply block;
+		overflow-x: scroll;
+	}
+}

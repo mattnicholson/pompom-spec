@@ -1,0 +1,30 @@
+{
+	"name": "parcel-starter",
+	"source": [
+		"src/index.html",
+		"src/element.html"
+	],
+	"browserslist": ">0.3%, defaults",
+	"scripts": {
+		"start": "parcel",
+		"build": "parcel build"
+	},
+	"devDependencies": {
+		"@parcel/transformer-sass": "2.8.0",
+		"autoprefixer": "^10.4.13",
+		"parcel": "latest",
+		"parcel-reporter-static-files-copy": "^1.4.0",
+		"postcss": "^8.4.19",
+		"postcss-import": "^15.0.0",
+		"serve-static": "^1.15.0",
+		"tailwindcss": "^3.2.4"
+	},
+	"dependencies": {
+		"@alpinejs/intersect": "^3.10.5",
+		"@alpinejs/morph": "^3.10.5",
+		"@barba/core": "2.9.7",
+		"alpinejs": "3.10.5",
+		"gsap": "3.9.1",
+		"js-beautify": "^1.14.7"
+	}
+}

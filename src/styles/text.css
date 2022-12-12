@@ -1,0 +1,137 @@
+/* Utils */
+.spec-caption {
+	@apply font-mono rounded border border-rose-500 inline-block p-2 mb-8 text-rose-500 text-[12px];
+}
+.heading-spacing {
+	letter-spacing: -0.03em;
+}
+
+/* Primary */
+.type-primary-sm {
+	@apply font-primary text-sm;
+}
+.type-primary-base {
+	@apply font-primary text-base;
+}
+.type-primary-lg {
+	@apply font-primary heading-spacing text-lg lg:text-2xl;
+	line-height: 100%;
+}
+.type-primary-xl {
+	@apply font-primary heading-spacing text-2xl lg:text-vw xl:text-max;
+	line-height: 95%;
+}
+
+/* Light */
+.type-light-xs {
+	@apply font-light text-xs;
+}
+.type-light-sm {
+	@apply font-light text-sm;
+}
+.type-light-base {
+	@apply font-light text-base;
+}
+.type-light-lg {
+	@apply font-light heading-spacing text-lg lg:text-2xl heading-spacing;
+	line-height: 100%;
+}
+
+/* Serif */
+.type-serif-sm {
+	@apply font-serif text-xs;
+}
+.type-serif-body {
+	@apply font-serif text-base md:text-body;
+	line-height: 133%;
+}
+
+/* Applications */
+
+.type-body {
+	@apply type-serif-body;
+}
+
+.type-heading {
+	@apply type-primary-xl;
+}
+
+.type-eyebrow {
+	@apply type-light-sm;
+}
+
+.type-cta {
+	@apply type-primary-base;
+}
+
+.type-subhead {
+	@apply type-primary-lg;
+}
+
+.type-subhead-alt {
+	@apply type-light-lg;
+}
+
+.type-button {
+	@apply type-primary-sm text-center cursor-pointer inline-block border border-current border-[2px] grow-0 flex-initial self-start;
+	padding: 0.65em 2em;
+	padding-bottom: 0.6em;
+	line-height: 100%;
+}
+
+.type-shortquote-title {
+	@apply type-light-base;
+}
+
+.type-shortquote {
+	@apply type-heading relative flex-initial self-start;
+	max-width: 9em;
+	&:before {
+		@apply absolute top-0 left-0 -translate-x-[110%];
+		content: "“";
+	}
+
+	&:after {
+		@apply inline-block;
+		content: "”";
+		overflow: visible;
+		width: 0;
+		margin-left: -0.2em;
+	}
+}
+.type-shortquote-credit {
+	@apply type-primary-base;
+	line-height: 125%;
+}
+
+.type-longquote-title {
+	@apply type-primary-base;
+}
+
+.type-longquote {
+	@apply type-light-lg;
+	line-height: 120%;
+	max-width: 18em;
+	margin-left: auto;
+	margin-right: auto;
+	&:before {
+		@apply inline-block translate-x-[60%];
+		content: "“";
+	}
+
+	&:after {
+		@apply inline-block -translate-x-[70%];
+		content: "”";
+	}
+}
+.type-longquote-credit {
+	@apply type-body;
+}
+
+.type-interface-label {
+	@apply type-light-xs;
+}
+
+.type-interface {
+	@apply type-primary-sm;
+}

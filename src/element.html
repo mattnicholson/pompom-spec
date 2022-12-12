@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+		<script type="module" src="./index.js"></script>
+		<link href="./index.css" rel="stylesheet" />
+
+		<title></title>
+	</head>
+	<body x-data data-barba="wrapper">
+		<div data-barba="container" data-barba-namespace="home">
+			<div x-data x-effect="$store.route.update(window.location.href)">
+				<template x-if="$store.route.match('images')">
+					<div
+						class="Image"
+						x-data="image"
+						x-bind="lazy"
+						data-src="/img/unsplash.jpg"
+					></div>
+				</template>
+				<template x-if="$store.route.match('icons')">
+					<div class="padded">
+						<div class="border-t-[2px] border-off-black pt-4 pb-8">
+							<div class="type-heading">Icons</div>
+						</div>
+						<div
+							x-data="{icons:[
+							{
+								name:'Search',
+								label : 'search'
+							},
+							{
+								name:'User',
+								label : 'user'
+							},
+							{
+								name:'Bag',
+								label : 'bag'
+							},
+							{
+								name:'Clock',
+								label : 'clock'
+							},
+							{
+								name:'Read',
+								label : 'book3'
+							},
+							{
+								name:'Help',
+								label : 'help'
+							},
+							{
+								name:'Receipt',
+								label : 'receipt'
+							},
+							{
+								name:'Contact',
+								label : 'mail'
+							},
+							{
+								name:'Address',
+								label : 'home'
+							},
+							{
+								name:'Complete',
+								label : 'check'
+							},
+							{
+								name:'Note',
+								label : 'chat'
+							},
+							]}"
+						>
+							<template x-for="icon in icons">
+								<div
+									class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+								>
+									<span
+										x-data
+										class="icon"
+										:data-icon="icon.label"
+									>
+									</span>
+									<div x-text="icon.name"></div>
+									<div
+										class="font-mono text-[12px]"
+										x-text="icon.label"
+									></div>
+									<div class="place-self-end">
+										<div
+											class="code code-flush"
+											x-data="code"
+										>
+											<span
+												x-data
+												class="icon"
+												:data-icon="icon.label"
+											></span>
+										</div>
+									</div>
+								</div>
+							</template>
+
+							<div
+								class="border-t-[2px] border-off-black pt-4 pb-4 mt-8"
+							>
+								<div class="type-heading">SVGs</div>
+							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Plus">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath id="clip-Icon_Plus">
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Plus"
+												clip-path="url(#clip-Icon_Plus)"
+											>
+												<path
+													id="Path_72"
+													data-name="Path 72"
+													d="M4604.3,17016v-6.3H4598v-1.4h6.3v-6.3h1.4v6.3h6.3v1.4h-6.3v6.3Z"
+													transform="translate(-4595 -16998.996)"
+												/>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Plus</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Plus"
+									></div>
+								</div>
+							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Minus">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath id="clip-Icon_Minus">
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Minus"
+												clip-path="url(#clip-Icon_Minus)"
+											>
+												<rect
+													id="Rectangle_494"
+													data-name="Rectangle 494"
+													width="14"
+													height="1.4"
+													transform="translate(3 8.999)"
+												/>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Minus</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Plus"
+									></div>
+								</div>
+							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Chevron_Right">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath
+													id="clip-Icon_Chevron_Right"
+												>
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Chevron_Right"
+												clip-path="url(#clip-Icon_Chevron_Right)"
+											>
+												<path
+													id="Path_69"
+													data-name="Path 69"
+													d="M1.252,0,0,1.252,5.819,7.07,0,12.89l1.252,1.252L8.323,7.07Z"
+													transform="translate(6 2.999)"
+													fill="#040405"
+												/>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Chevron Right</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Chevron_Right"
+									></div>
+								</div>
+							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Chevron_Left">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath
+													id="clip-Icon_Chevron_Left"
+												>
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Chevron_Left"
+												clip-path="url(#clip-Icon_Chevron_Left)"
+											>
+												<path
+													id="Path_70"
+													data-name="Path 70"
+													d="M7.071,0,0,7.07l7.071,7.072L8.323,12.89,2.5,7.07,8.323,1.252Z"
+													transform="translate(6 2.999)"
+													fill="#040405"
+												/>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Chevron Left</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Chevron_Left"
+									></div>
+								</div>
+							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Chevron_Down">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath
+													id="clip-Icon_Chevron_Down"
+												>
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Chevron_Down"
+												clip-path="url(#clip-Icon_Chevron_Down)"
+											>
+												<path
+													id="Path_73"
+													data-name="Path 73"
+													d="M12.89,0,7.072,5.818,1.252,0,0,1.252,7.072,8.323l7.07-7.071Z"
+													transform="translate(3 5.999)"
+													fill="#040405"
+												/>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Chevron Down</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Chevron_Down"
+									></div>
+								</div>
+							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Twitter">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath
+													id="clip-Icon_Twitter"
+												>
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Twitter"
+												clip-path="url(#clip-Icon_Twitter)"
+											>
+												<path
+													id="iconfinder_bird_social_media_social_network_tweet_twitter_twitter_logo_5305170"
+													data-name="iconfinder_bird_social media_social network_tweet_twitter_twitter logo_5305170"
+													d="M6.489,64.754A11.964,11.964,0,0,0,18.535,52.708c0-.183,0-.366-.012-.547a8.614,8.614,0,0,0,2.112-2.191,8.452,8.452,0,0,1-2.432.666,4.249,4.249,0,0,0,1.861-2.342,8.486,8.486,0,0,1-2.688,1.028,4.238,4.238,0,0,0-7.215,3.861,12.025,12.025,0,0,1-8.725-4.423,4.254,4.254,0,0,0,1.311,5.651,4.2,4.2,0,0,1-1.922-.53v.054a4.248,4.248,0,0,0,3.4,4.15,4.228,4.228,0,0,1-1.912.073A4.247,4.247,0,0,0,6.266,61.1a8.5,8.5,0,0,1-5.258,1.816A8.613,8.613,0,0,1,0,62.852a11.987,11.987,0,0,0,6.489,1.9"
+													transform="translate(0 -45.987)"
+												/>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Twitter</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Twitter"
+									></div>
+								</div>
+							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Ravelry">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath
+													id="clip-Icon_Ravelry"
+												>
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Ravelry"
+												clip-path="url(#clip-Icon_Ravelry)"
+											>
+												<g
+													id="RavelryIcon-Black-32x32"
+													transform="translate(0)"
+												>
+													<g
+														id="_2019-Ravelry-Secondary-MarBlack-Black-Copy-5"
+														data-name="2019-Ravelry-Secondary-MarBlack-Black-Copy-5"
+														transform="translate(0 0)"
+													>
+														<path
+															id="Shape"
+															d="M19.813,8.935c-.049-.421-.069-.849-.153-1.263a12.646,12.646,0,0,0-.392-1.492,7.5,7.5,0,0,0-1.259-2.344,10.235,10.235,0,0,0-.767-.884,9.672,9.672,0,0,0-1.92-1.472A9.815,9.815,0,0,0,13.009.474C12.56.348,12.1.252,11.643.163,11.367.11,11.083.1,10.8.062c-.013,0-.024-.015-.037-.023H9.45c-.1.016-.2.038-.295.047a7.313,7.313,0,0,0-1.4.289,9.029,9.029,0,0,0-1.621.667,11.47,11.47,0,0,0-1.552.985c-.251.188-.5.382-.733.592-.415.375-.83.751-1.22,1.152A9.939,9.939,0,0,0,1.261,5.563,8.417,8.417,0,0,0,.425,7.381,8.083,8.083,0,0,0,.112,8.8a8.2,8.2,0,0,0-.063,1.448,12.217,12.217,0,0,0,.18,1.64,9.249,9.249,0,0,0,.682,2.173,8.581,8.581,0,0,0,.978,1.611,8.71,8.71,0,0,0,1.074,1.158,10.245,10.245,0,0,0,1.7,1.247,11.733,11.733,0,0,0,2.279,1.03,10.987,10.987,0,0,0,1.657.4c.247.041.5.051.751.076a.169.169,0,0,1,.049.023h1.316c.1-.016.2-.038.307-.047a7.771,7.771,0,0,0,1.936-.437,8.966,8.966,0,0,0,2-.971c.4-.263.791-.533,1.171-.819a8.438,8.438,0,0,0,.665-.589c.162-.151.316-.309.469-.469a9.462,9.462,0,0,0,1.281-1.7,8.434,8.434,0,0,0,.909-2.076c.117-.424.2-.858.286-1.29.042-.215.051-.437.076-.656,0-.013.015-.025.023-.037V9.008A.4.4,0,0,1,19.813,8.935Zm-6.568-.047a8.136,8.136,0,0,0-1.161-.121c-1.109,0-1.368.607-1.368,1.51v3.818h-3V6.32h3v1.3c.364-1.093,1.091-1.475,2.529-1.475V8.888Z"
+															transform="translate(-0.039 -0.04)"
+														/>
+													</g>
+												</g>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Ravelry</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Ravelry"
+									></div>
+								</div>
+							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Instagram">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath
+													id="clip-Icon_Instagram"
+												>
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Instagram"
+												clip-path="url(#clip-Icon_Instagram)"
+											>
+												<g
+													id="iconfinder_instagram_1161953"
+													transform="translate(1 0.999)"
+												>
+													<path
+														id="Path_9"
+														data-name="Path 9"
+														d="M20.177,16.7a4.777,4.777,0,1,0,4.777,4.777A4.786,4.786,0,0,0,20.177,16.7Zm0,7.837a3.06,3.06,0,1,1,3.06-3.06A3.074,3.074,0,0,1,20.177,24.537Z"
+														transform="translate(-10.922 -12.259)"
+													/>
+													<ellipse
+														id="Ellipse_1"
+														data-name="Ellipse 1"
+														cx="1.082"
+														cy="1.082"
+														rx="1.082"
+														ry="1.082"
+														transform="translate(13.136 3.247)"
+													/>
+													<path
+														id="Path_10"
+														data-name="Path 10"
+														d="M20.417,6.33A5.315,5.315,0,0,0,16.5,4.8H8.811A5.112,5.112,0,0,0,3.4,10.211v7.65a5.37,5.37,0,0,0,1.567,3.993,5.446,5.446,0,0,0,3.881,1.455h7.613a5.51,5.51,0,0,0,3.918-1.455,5.342,5.342,0,0,0,1.53-3.956V10.211A5.35,5.35,0,0,0,20.417,6.33ZM20.267,17.9a3.646,3.646,0,0,1-1.082,2.724,3.857,3.857,0,0,1-2.724.97H8.848a3.857,3.857,0,0,1-2.724-.97,3.751,3.751,0,0,1-1.008-2.761v-7.65A3.72,3.72,0,0,1,6.124,7.487a3.8,3.8,0,0,1,2.724-.97h7.687A3.72,3.72,0,0,1,19.26,7.524a3.851,3.851,0,0,1,1.008,2.687V17.9Z"
+														transform="translate(-3.4 -4.8)"
+													/>
+												</g>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Instagram</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Instagram"
+									></div>
+								</div>
+							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Play">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath id="clip-Icon_Play">
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Play"
+												clip-path="url(#clip-Icon_Play)"
+											>
+												<path
+													id="Polygon_1"
+													data-name="Polygon 1"
+													d="M5.833,0l5.833,10H0Z"
+													transform="translate(16 3.999) rotate(90)"
+												/>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Play</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Play"
+									></div>
+								</div>
+							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Yarn">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath id="clip-Icon_Yarn">
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Yarn"
+												clip-path="url(#clip-Icon_Yarn)"
+											>
+												<g
+													id="wool-svgrepo-com"
+													transform="translate(1 1.055)"
+												>
+													<g
+														id="Group_152"
+														data-name="Group 152"
+														transform="translate(9.005 16.323)"
+													>
+														<g
+															id="Group_151"
+															data-name="Group 151"
+														>
+															<path
+																id="Path_41"
+																data-name="Path 41"
+																d="M257.405,464.309a.84.84,0,0,0-.788.552h-.462v.551h.454a.838.838,0,1,0,.8-1.1Zm0,1.126a.287.287,0,1,1,.287-.287A.288.288,0,0,1,257.405,465.435Z"
+																transform="translate(-256.156 -464.309)"
+															/>
+														</g>
+													</g>
+													<g
+														id="Group_154"
+														data-name="Group 154"
+														transform="translate(0)"
+													>
+														<g
+															id="Group_153"
+															data-name="Group 153"
+														>
+															<path
+																id="Path_42"
+																data-name="Path 42"
+																d="M16.741,14.353H3.794a.428.428,0,1,1,0-.856H15.9a.979.979,0,0,0,0-1.958H10.127a.287.287,0,1,1,0-.575h.985a.979.979,0,1,0,0-1.958H7a4.777,4.777,0,1,0-2.225.551h6.332a.428.428,0,1,1,0,.856h-.985a.838.838,0,1,0,0,1.677H15.9a.428.428,0,0,1,0,.856H3.794a.979.979,0,1,0,0,1.958H16.741a.71.71,0,1,1,0,1.419H15.193a.839.839,0,0,0-.838.838.288.288,0,0,1-.287.287H12.941V18h1.126a.839.839,0,0,0,.838-.838.288.288,0,0,1,.287-.287h1.548a1.26,1.26,0,1,0,0-2.521ZM7.574,1.609q.145.128.279.269l-.279.279Zm-.808-.562q.131.07.257.149V2.708l-.257.257ZM5.921.708Q6.071.75,6.215.8V3.516l-.138.138H5.921V.708ZM5.04.559q.167.01.331.033V3.654H5.04V.559ZM4.2.591q.145-.02.294-.03V3.654H4.2Zm-.808.2q.127-.044.257-.081V3.654H3.387Zm-.845.406q.143-.09.294-.168v2.63H2.543Zm-.881.734A4.269,4.269,0,0,1,1.992,1.6V3.654H1.661ZM1.11,2.68v.974H.7A4.205,4.205,0,0,1,1.11,2.68ZM.591,4.205H5.526L5.232,4.5H.561Q.571,4.351.591,4.205Zm-.03.845H4.681l-.294.294H.59Q.57,5.2.561,5.05ZM.7,5.894H3.837l-.294.294H.794Q.743,6.044.7,5.894Zm.5,1.138q-.091-.143-.17-.294H2.992L2.7,7.033Zm.675.819q-.136-.128-.26-.268h.527Zm.426.353,5.9-5.9q.073.1.14.206L2.512,8.345Q2.407,8.278,2.306,8.2Zm.71.416L8.621,3.015q.055.12.1.244L3.259,8.723Q3.136,8.675,3.016,8.62Zm1.134.339Q4,8.937,3.857,8.9L8.905,3.856q.032.144.055.292ZM4.883,9,9.006,4.882c0,.126-.012.25-.026.372L5.255,8.979C5.132,8.993,5.008,9,4.883,9ZM8.73,6.283A4.25,4.25,0,0,1,6.284,8.729Z"
+																transform="translate(-0.001)"
+															/>
+														</g>
+													</g>
+													<g
+														id="Group_156"
+														data-name="Group 156"
+														transform="translate(8.161 16.912)"
+													>
+														<g
+															id="Group_155"
+															data-name="Group 155"
+														>
+															<rect
+																id="Rectangle_157"
+																data-name="Rectangle 157"
+																width="0.551"
+																height="0.551"
+															/>
+														</g>
+													</g>
+													<g
+														id="Group_158"
+														data-name="Group 158"
+														transform="translate(0.008 16.875)"
+													>
+														<g
+															id="Group_157"
+															data-name="Group 157"
+														>
+															<rect
+																id="Rectangle_158"
+																data-name="Rectangle 158"
+																width="7.859"
+																height="0.551"
+															/>
+														</g>
+													</g>
+													<g
+														id="Group_160"
+														data-name="Group 160"
+														transform="translate(0.281 14.916)"
+													>
+														<g
+															id="Group_159"
+															data-name="Group 159"
+														>
+															<path
+																id="Path_43"
+																data-name="Path 43"
+																d="M9.635,424.846a.838.838,0,1,0,0,.551h.337v-.551Zm-.792.562a.287.287,0,1,1,.287-.287A.288.288,0,0,1,8.843,425.408Z"
+																transform="translate(-8.005 -424.282)"
+															/>
+														</g>
+													</g>
+													<g
+														id="Group_162"
+														data-name="Group 162"
+														transform="translate(2.542 15.517)"
+													>
+														<g
+															id="Group_161"
+															data-name="Group 161"
+														>
+															<rect
+																id="Rectangle_159"
+																data-name="Rectangle 159"
+																width="0.551"
+																height="0.551"
+															/>
+														</g>
+													</g>
+													<g
+														id="Group_164"
+														data-name="Group 164"
+														transform="translate(3.386 15.48)"
+													>
+														<g
+															id="Group_163"
+															data-name="Group 163"
+														>
+															<rect
+																id="Rectangle_160"
+																data-name="Rectangle 160"
+																width="7.859"
+																height="0.551"
+															/>
+														</g>
+													</g>
+												</g>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Yarn</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Yarn"
+									></div>
+								</div>
+							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Glove">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath id="clip-Icon_Glove">
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Glove"
+												clip-path="url(#clip-Icon_Glove)"
+											>
+												<g
+													id="wool-gloves-svgrepo-com"
+													transform="translate(2 0.999)"
+												>
+													<g
+														id="Group_165"
+														data-name="Group 165"
+														transform="translate(0)"
+													>
+														<path
+															id="Path_44"
+															data-name="Path 44"
+															d="M28.346,3.281a25.338,25.338,0,0,0,1.116,5.243c.1.313.175.563.2.7v5a.228.228,0,0,0,.228.228h3.674a.228.228,0,0,0,.228-.228V9.48c.177-.264.615-.774,1.076-1.312a20.991,20.991,0,0,0,1.717-2.162,1.034,1.034,0,0,0,.128-1.075.74.74,0,0,0-.658-.364.813.813,0,0,0-.579.238c-.677.69-1.045.781-1.155.792,0-.19.022-.625.048-1.048a27.6,27.6,0,0,0,.061-3.38.828.828,0,0,0-.783-.813c-.319,0-.714.233-.778.888-.019.189-.044.432-.072.7,0-.136-.022-1.054-.031-1.233A.725.725,0,0,0,32.03,0a.771.771,0,0,0-.77.809s-.008.571-.011.768c0-.049-.039-.945-.756-.945a.743.743,0,0,0-.535.233.9.9,0,0,0-.23.678c.019.382.034.718.046,1.012a.716.716,0,0,0-1.193-.186A1.13,1.13,0,0,0,28.346,3.281ZM30.793,1.6a1.465,1.465,0,0,0-.6.1l-.009-.178a.451.451,0,0,1,.105-.342.286.286,0,0,1,.2-.091c.161,0,.272.145.29.379C30.787,1.509,30.79,1.552,30.793,1.6Zm1.529-.548a1.308,1.308,0,0,0-.609.032l0-.264A.319.319,0,0,1,32.03.456a.27.27,0,0,1,.281.276C32.316.811,32.319.919,32.322,1.048Zm1.669.4a2.834,2.834,0,0,0-.677-.06l.01-.1c.029-.294.153-.476.325-.476.144,0,.309.137.328.392C33.982,1.282,33.987,1.363,33.991,1.446Zm2.176,4.37a2.4,2.4,0,0,0-.532-.528c.055-.053.111-.107.168-.164a.355.355,0,0,1,.254-.1.306.306,0,0,1,.261.133C36.482,5.4,36.176,5.8,36.167,5.815Zm-3.6,4.513h.769v3.666h-.769Zm-1.225,0h.769v3.666h-.769Zm-1.225,0h.769v3.666h-.769Zm-1.266-6.61a2.907,2.907,0,0,1,.649-.19,5.53,5.53,0,0,0,.281,1.281.266.266,0,0,0,.237.114.244.244,0,0,0,.205-.131c.041-.088.1-.206-.01-2.6a1.032,1.032,0,0,1,.611-.135l.02.3A8.807,8.807,0,0,0,31.1,4.585a.228.228,0,0,0,.193.107.277.277,0,0,0,.141-.027.229.229,0,0,0,.1-.1,13.255,13.255,0,0,0,.174-3,.874.874,0,0,1,.627-.042A28.769,28.769,0,0,0,32.517,4.4c.038.087.1.138.254.138a.225.225,0,0,0,.227-.2c0-.056.041-.386.086-.8.056-.512.127-1.158.182-1.683a2.184,2.184,0,0,1,.739.079c.011.861-.046,1.838-.092,2.6-.065,1.1-.065,1.241.007,1.353a.418.418,0,0,0,.376.179,1.765,1.765,0,0,0,.984-.458,1.8,1.8,0,0,1,.6.631c-.36.479-.882,1.089-1.359,1.644A16.377,16.377,0,0,0,33.37,9.294a.228.228,0,0,0-.033.119v.459H30.118s0-.7,0-.708a7.4,7.4,0,0,0-.218-.777A25.3,25.3,0,0,1,28.852,3.719Zm.067-1.043a.267.267,0,0,1,.2-.093.274.274,0,0,1,.268.253l.04.242a3.428,3.428,0,0,0-.626.169A.838.838,0,0,1,28.919,2.676Z"
+															transform="translate(-28.337 0)"
+														/>
+														<path
+															id="Path_45"
+															data-name="Path 45"
+															d="M188.832,80.2a.716.716,0,0,0-1.193.186c.012-.294.027-.63.046-1.012a.9.9,0,0,0-.23-.678.744.744,0,0,0-.535-.233c-.717,0-.752.9-.756.945,0-.2-.011-.768-.011-.768a.771.771,0,0,0-.77-.809.725.725,0,0,0-.737.709c-.009.179-.027,1.1-.031,1.233-.028-.267-.053-.51-.072-.7-.064-.655-.459-.888-.778-.888a.828.828,0,0,0-.783.813,27.6,27.6,0,0,0,.061,3.38c.025.423.051.857.048,1.048-.11-.011-.478-.1-1.155-.792a.814.814,0,0,0-.579-.238.74.74,0,0,0-.658.364,1.034,1.034,0,0,0,.128,1.075A21,21,0,0,0,182.545,86c.462.538.9,1.048,1.076,1.312v4.743a.228.228,0,0,0,.228.228h3.674a.228.228,0,0,0,.228-.228v-5c.025-.136.1-.386.2-.7a25.344,25.344,0,0,0,1.116-5.243A1.131,1.131,0,0,0,188.832,80.2Zm-2.2-.9c.018-.234.129-.379.29-.379a.286.286,0,0,1,.2.091.45.45,0,0,1,.105.342l-.009.178a1.465,1.465,0,0,0-.6-.1Zm-1.528-.735a.27.27,0,0,1,.281-.276.319.319,0,0,1,.314.359l0,.264a1.308,1.308,0,0,0-.609-.032C185.094,78.748,185.1,78.64,185.1,78.561Zm-1.665.472c.02-.255.184-.392.328-.392.171,0,.3.182.325.476l.01.1a2.837,2.837,0,0,0-.677.06C183.426,79.192,183.431,79.111,183.437,79.033ZM181.1,82.984a.306.306,0,0,1,.261-.133.355.355,0,0,1,.254.1c.056.058.112.112.168.164a2.4,2.4,0,0,0-.532.528C181.238,83.63,180.931,83.23,181.1,82.984Zm3.75,8.839h-.769V88.158h.769Zm1.225,0H185.3V88.158h.769Zm1.225,0h-.769V88.158h.769Zm.221-5.607a7.38,7.38,0,0,0-.218.777c0,.012,0,.708,0,.708h-3.218v-.46a.228.228,0,0,0-.033-.119,16.36,16.36,0,0,0-1.153-1.424c-.476-.555-1-1.165-1.359-1.644a1.8,1.8,0,0,1,.6-.631,1.764,1.764,0,0,0,.984.458.419.419,0,0,0,.376-.179c.072-.112.073-.251.007-1.353-.045-.76-.1-1.738-.092-2.6a2.185,2.185,0,0,1,.739-.079c.055.525.126,1.172.182,1.683.046.417.082.746.087.8a.225.225,0,0,0,.227.2c.151,0,.216-.052.254-.138a28.77,28.77,0,0,0,.184-2.874.874.874,0,0,1,.627.042,13.257,13.257,0,0,0,.173,3,.228.228,0,0,0,.1.1.278.278,0,0,0,.141.027.228.228,0,0,0,.193-.107,8.808,8.808,0,0,0,.253-2.232l.02-.3a1.033,1.033,0,0,1,.611.135c-.107,2.4-.051,2.514-.01,2.6a.245.245,0,0,0,.205.131.266.266,0,0,0,.237-.114,5.53,5.53,0,0,0,.281-1.281,2.909,2.909,0,0,1,.649.19A25.3,25.3,0,0,1,187.516,86.217Zm1.1-5.14a3.43,3.43,0,0,0-.626-.169l.04-.242a.274.274,0,0,1,.268-.253.267.267,0,0,1,.2.093A.839.839,0,0,1,188.613,81.077Z"
+															transform="translate(-173.661 -74.28)"
+														/>
+													</g>
+												</g>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Gloves</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Glove"
+									></div>
+								</div>
+							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Knit">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath id="clip-Icon_Knit">
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Knit"
+												clip-path="url(#clip-Icon_Knit)"
+											>
+												<path
+													id="knitting-svgrepo-com"
+													d="M17.856,12.266l-3.871-1.544A4.791,4.791,0,0,0,7.6,4.935L6.174,1.354Q6.2,1.33,6.231,1.3a.762.762,0,1,0-.539.223l.056,0,1.44,3.6a4.824,4.824,0,0,0-2.06,2.06L1.522,5.749c0-.019,0-.037,0-.056A.757.757,0,0,0,1.3,5.154h0a.762.762,0,1,0,0,1.078q.027-.027.052-.057L4.936,7.6a4.792,4.792,0,0,0,5.785,6.38l1.545,3.872a.229.229,0,0,0,.426-.17l-1.537-3.851a4.818,4.818,0,0,0,2.681-2.68l3.85,1.536a.229.229,0,1,0,.17-.426ZM5.388.764a.3.3,0,1,1,.089.215A.3.3,0,0,1,5.388.764ZM.977,5.908a.3.3,0,1,1,0-.43h0a.3.3,0,0,1,0,.43ZM11.612,13.1,5.671,7.154a4.355,4.355,0,0,1,.353-.5l5.127,5.127a.23.23,0,0,0,.1.1l.864.864A4.351,4.351,0,0,1,11.612,13.1Zm-1.1.468L5.2,8.253a4.3,4.3,0,0,1,.245-.675l5.741,5.745A4.3,4.3,0,0,1,10.515,13.566ZM9.384,5.051a4.342,4.342,0,0,1,.747.065l-2.5,2.5-.43-.43L9.336,5.052ZM13.552,8.2H10.769l.65-.65h1.89A4.3,4.3,0,0,1,13.552,8.2Zm.063,2.119H10.338l-.59-.59H13.7A4.312,4.312,0,0,1,13.615,10.318ZM9.7,9.269l.611-.611h3.345a4.334,4.334,0,0,1,.06.611ZM9.17,9.149l-.43-.43,2.982-2.982a4.36,4.36,0,0,1,.492.368ZM8.416,8.4l-.458-.458,2.7-2.7a4.3,4.3,0,0,1,.654.261ZM6.88,6.859l-.547-.547A4.327,4.327,0,0,1,8.62,5.119ZM10.8,10.776h2.691a4.308,4.308,0,0,1-.294.67H11.467Zm2.262-3.685H11.877l.667-.667A4.363,4.363,0,0,1,13.059,7.091ZM5.184,10.448,8.32,13.584A4.348,4.348,0,0,1,5.184,10.448Zm3.907,3.258L5.062,9.677c-.007-.1-.01-.195-.01-.293a4.345,4.345,0,0,1,.041-.592l4.884,4.884a4.352,4.352,0,0,1-.592.041C9.286,13.716,9.188,13.713,9.091,13.706Zm3.366-1.271-.531-.531h.98A4.367,4.367,0,0,1,12.457,12.436Z"
+													transform="translate(1 0.997)"
+												/>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Knit</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Knit"
+									></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</template>
+				<template x-if="$store.route.match('type')">
+					<div class="padded">
+						<div
+							class="border-t-[2px] border-b-[1px] border-off-black pt-4 pb-8 mb-4"
+						>
+							<div class="type-heading">Typography</div>
+						</div>
+						<div class="spec-caption">Font Styles</div>
+						<div
+							x-data="{styles:[
+							{name:'Volte Semibold',label : 'primary',sizes : ['sm','base','lg','xl']},
+							{name:'Volte',label : 'light',sizes : ['xs','sm','base','lg']},
+							{name:'Minion Pro',label : 'serif',sizes : ['sm','body']}
+							]}"
+						>
+							<ul class="mb-8">
+								<template x-for="style in styles">
+									<li
+										x-data
+										class="capitalize"
+										:class="'font-' + style.label"
+									>
+										<div x-text="style.name"></div>
+									</li>
+								</template>
+							</ul>
+
+							<div x-data="code" class="code">
+								<div>
+									<div class="font-primary">
+										Volte Semibold
+									</div>
+									<div class="font-light">Volte</div>
+									<div class="font-serif">Minion Pro</div>
+								</div>
+							</div>
+							<hr class="rule" />
+							<div class="spec-caption">Font Sizes</div>
+							<div class="mb-8 hstack">
+								<template x-for="style in styles">
+									<div
+										x-data
+										class="capitalize pb-8"
+										:class="'font-' + style.label"
+									>
+										<div x-text="style.name"></div>
+										<template x-for="size in style.sizes">
+											<div
+												x-data
+												class="pl-8"
+												:class="`type-${style.label}-${size}`"
+											>
+												<span x-text="size"></span>
+											</div>
+										</template>
+									</div>
+								</template>
+							</div>
+
+							<div x-data="code" class="code">
+								<div x-ref="font-styles">
+									<template x-for="style in styles">
+										<div
+											x-data
+											:class="'font-' + style.label"
+										>
+											<template
+												x-for="size in style.sizes"
+											>
+												<div
+													x-data
+													x-text="`${style.name} (${size})`"
+													:class="`type-${style.label}-${size}`"
+												></div>
+											</template>
+										</div>
+									</template>
+								</div>
+							</div>
+						</div>
+
+						<hr class="rule" />
+						<div class="spec-caption">Type Applications</div>
+						<div class="vstack mb-8" id="textApplications">
+							<div class="type-eyebrow">
+								Eyebrow text in Volte regular
+							</div>
+							<div class="type-heading">
+								Headings in<br />Volte<br />Semibold
+							</div>
+							<div class="type-body">
+								Body text in Minion Issue 41 marks our 10th<br />birthday
+								and we have a host of jubilant and celebratory
+								designs<br />which radiate all the joy we feel
+								on this<br />
+								landmark occasion.
+							</div>
+							<div class="type-cta">Sub Navigation</div>
+							<div class="type-button">Read more</div>
+							<div class="type-button">Edit</div>
+							<div class="hscroller">
+								<div class="padded">
+									<div class="type-subhead">Announcement</div>
+								</div>
+								<div class="padded">
+									<div class="type-subhead-alt">
+										Announcement
+									</div>
+								</div>
+								<div class="padded">
+									<div class="type-subhead">Announcement</div>
+								</div>
+							</div>
+							<div class="padded vstack">
+								<div class="type-shortquote-title">Press</div>
+								<div class="type-shortquote">
+									Short quotes use the semibold for impact &
+									texture.
+								</div>
+								<div class="type-shortquote-credit">
+									Lorem ipsum<br />
+									Dolor sit
+								</div>
+							</div>
+
+							<div class="padded text-center">
+								<div class="vstack">
+									<div class="type-longquote-title">
+										Press
+									</div>
+									<div class="type-longquote">
+										Volte regular used for slightly
+										lengthier excerpts at a larger size,
+										such as testimonials or paragraphs that
+										need more impact than the body text
+										offers
+									</div>
+									<div class="type-longquote-credit">
+										Lorem ipsum — Dolor sit
+									</div>
+								</div>
+							</div>
+
+							<div>
+								<div class="type-interface-label">
+									Interface label:
+								</div>
+								<div class="type-interface">Interface text</div>
+							</div>
+						</div>
+						<div
+							x-data="code"
+							class="code"
+							data-from="#textApplications"
+						></div>
+					</div>
+				</template>
+			</div>
+		</div>
+	</body>
+</html>

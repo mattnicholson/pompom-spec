@@ -1,0 +1,9 @@
+@config "./tailwind.admin.config.js";
+
+@font-face {
+	font-family: "linearicons";
+	src: url("./font/LinearIcons/Linearicons.woff2") format("woff2"),
+		url("./font/Linearicons/Linearicons.woff") format("woff");
+	font-style: normal;
+	font-weight: 400;
+}

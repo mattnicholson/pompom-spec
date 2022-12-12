@@ -1,0 +1,7 @@
+@import "./styles/admin/config";
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./styles/admin/base";

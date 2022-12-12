@@ -1,0 +1,13 @@
+body {
+	@apply font-primary;
+	@apply transition duration-700 bg-page text-off-black;
+}
+
+img {
+	display: block;
+	width: 100%;
+}
+
+.rule {
+	@apply mt-8 mb-8 border-t-2 border-off-black;
+}

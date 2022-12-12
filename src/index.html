@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" x-data :class="$store.darkMode.on && 'dark'">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+		<script src="./index.js" type="module"></script>
+		<link href="./admin.css" rel="stylesheet" />
+
+		<title>Specification</title>
+	</head>
+	<body
+		x-data
+		:class="$store.darkMode.on ? 'dark' : 'light'"
+		data-barba="wrapper"
+	>
+		<header>
+			<h1>
+				PomPom
+				<span
+					class="inline-block relative"
+					x-data
+					x-transitionText="$store.page.title"
+				></span>
+			</h1>
+			<div id="dakModeToggle">
+				<button
+					x-data
+					@click="$store.darkMode.toggle()"
+					class="Toggle"
+					:class="$store.darkMode.on ? 'active' : 'inactive'"
+				></button>
+			</div>
+		</header>
+		<nav
+			x-data="{open:false}"
+			@click="open=!open"
+			@click.outside="open = false"
+			:class="open ? 'open' : 'closed'"
+		>
+			<div class="current">
+				<div
+					x-data
+					x-transitionText="$store.route.is('/') ? 'Browse...' : $store.page.title"
+				></div>
+			</div>
+			<ul>
+				<li>
+					<a
+						x-data
+						:class="$store.route.is('/') && 'active'"
+						href="./"
+						>Index</a
+					>
+				</li>
+				<li>
+					<a
+						x-data
+						:class="$store.route.match('type') && 'active'"
+						href="./?p=type"
+						>Typography</a
+					>
+				</li>
+				<li>
+					<a
+						x-data
+						:class="$store.route.match('icons') && 'active'"
+						href="./?p=icons"
+						>Icons</a
+					>
+				</li>
+				<li>
+					<a
+						x-data
+						:class="$store.route.match('images') && 'active'"
+						href="./?p=images"
+						>Images</a
+					>
+				</li>
+			</ul>
+		</nav>
+		<main>
+			<div data-barba="container" data-barba-namespace="home">
+				<div
+					x-data
+					x-effect="$store.route.update(window.location.href)"
+				>
+					<template x-if="$store.route.is('/')">
+						<div>
+							<div
+								x-data
+								x-effect="$store.page.set('Specification')"
+							></div>
+						</div>
+					</template>
+					<template x-if="$store.route.match('images')">
+						<div>
+							<div
+								x-data
+								x-effect="$store.page.set('Images')"
+							></div>
+
+							<div
+								x-data="breakpointSwitcher"
+								data-src="./element.html?p=images"
+							></div>
+
+							<!--
+							<iframe
+								x-data="iframe"
+								x-bind="lazy"
+								data-src="./element.html?p=images"
+								width="800"
+								height="400"
+							></iframe>
+							-->
+						</div>
+					</template>
+					<template x-if="$store.route.match('type')">
+						<div>
+							<div
+								x-data
+								x-effect="$store.page.set('Typography')"
+							></div>
+
+							<div
+								x-data="breakpointSwitcher"
+								data-src="./element.html?p=type"
+							></div>
+						</div>
+					</template>
+					<template x-if="$store.route.match('icons')">
+						<div>
+							<div
+								x-data
+								x-effect="$store.page.set('Icons')"
+							></div>
+
+							<div
+								x-data="breakpointSwitcher"
+								data-src="./element.html?p=icons"
+							></div>
+						</div>
+					</template>
+				</div>
+
+				<!--
+			<h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>
+			
+
+			<div
+				style="height: 100vh"
+				x-data
+				:class="$store.darkMode.on ? 'bg-slate-800' : 'bg-slate-200'"
+			>
+				<div x-data x-text="$store.route.href"></div>
+			</div>
+			-->
+			</div>
+		</main>
+	</body>
+</html>

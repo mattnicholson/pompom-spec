@@ -1,0 +1,133 @@
+body {
+	@apply font-mono p-4 gap-4 bg-slate-50;
+
+	@media screen(sm) {
+		& > header {
+			border-bottom: 1px solid;
+			height: 2.5em;
+			@apply mb-4;
+		}
+
+		& > nav {
+			@apply rounded p-1 fixed bottom-8 left-1/2 -translate-x-1/2 bg-slate-50 z-10;
+			width: 80%;
+			max-width: 400px;
+			border: 1px solid;
+			cursor: pointer;
+
+			.current {
+				@apply p-2;
+
+				&:after {
+					@apply font-icon bottom-1/2 translate-y-1/2 right-4 absolute block;
+					content: "plus";
+				}
+			}
+			ul {
+				@apply rounded bg-slate-50 p-3;
+				display: none;
+				position: absolute;
+				bottom: -1px;
+				left: -1px;
+				right: -1px;
+				height: auto;
+				max-height: 200px;
+				border: 1px solid;
+
+				li {
+					line-height: 2;
+				}
+			}
+
+			&.open {
+				ul {
+					display: block;
+				}
+			}
+		}
+	}
+
+	@media screen(lg) {
+		display: grid;
+		min-height: 100vh;
+		grid-template-areas:
+			"head head"
+			"nav  main"
+			"nav  foot";
+		grid-template-rows: 1.5em 1fr 30px;
+		grid-template-columns: 2fr 10fr;
+
+		& > header {
+			grid-area: head;
+			/*background-color: #8ca0ff;*/
+
+			h1 {
+				@apply grid gap-4;
+				grid-template-columns: 2fr 10fr;
+			}
+		}
+
+		& > nav {
+			grid-area: nav;
+			/*background-color: #ffa08c;*/
+			border-top: 1px solid;
+			@apply pt-4;
+
+			.current {
+				display: none;
+			}
+			ul {
+				position: sticky;
+				@apply top-4;
+			}
+		}
+
+		& > main {
+			grid-area: main;
+			border-top: 1px solid;
+			@apply pt-4 grid gap-4 grid-cols-10;
+			/*background-color: #ffff64;*/
+
+			& > * {
+				@apply col-span-10;
+			}
+		}
+	}
+}
+nav {
+	a {
+		@apply transition duration-500;
+	}
+	.active {
+		@apply text-red-400;
+	}
+}
+iframe {
+	@apply rounded-xl drop-shadow-2xl;
+	/*width: 80%;*/
+	margin: 0 auto;
+}
+.icon {
+	@apply font-icon w-[20px] h-[20px] text-[20px];
+	&:after {
+		content: attr(data-icon);
+	}
+}
+.toggler {
+	@apply rounded border border-black inline-flex mt-4 mb-8;
+	overflow: hidden;
+
+	li {
+		@apply p-2;
+		cursor: pointer;
+
+		border-right: 1px solid black;
+		&:last-child {
+			border: none;
+		}
+
+		&.active {
+			@apply text-white bg-red-400;
+		}
+	}
+}
