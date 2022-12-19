@@ -31,9 +31,15 @@ init(() => {
 			if (!this.$el.getAttribute("x-bind")) this.load();
 		},
 		setImage() {
-			let src = this.$el.getAttribute("data-src");
+			let src = this.$el.dataset.src;
+			let fit = this.$el.dataset.fit;
+			let objectfit = "object-none";
+
+			if (fit === "cover") objectfit = "object-cover";
+			if (fit === "contain") objectfit = "object-contain";
+
 			if (src) {
-				this.$el.innerHTML = `<img src="${src}" />`;
+				this.$el.innerHTML = `<img src="${src}" class="block abs-center ${objectfit}" />`;
 			}
 		},
 		load() {

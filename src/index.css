@@ -4,7 +4,15 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "swiper/swiper.min.css";
+
+/* Extra utils */
 @import "./styles/base.css";
 @import "./styles/body.css";
 @import "./styles/text.css";
 @import "./styles/interface.css";
+
+/* Components (composed of utils) */
+@import "./styles/components/Block.css";
+@import "./styles/components/Image.css";
+@import "./styles/components/Item.css";

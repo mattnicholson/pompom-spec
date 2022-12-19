@@ -1,6 +1,34 @@
 @layer base {
 }
 
+.abs-center {
+	/* Fix for Safari not seeming to support transforms */
+	@apply absolute  top-1/2 left-1/2;
+	transform: translate(-50%, -50%);
+}
+
+.x-center {
+	/* Fix for Safari not seeming to support transforms */
+	@apply absolute  left-1/2;
+	transform: translateX(-50%);
+}
+
+.y-center {
+	/* Fix for Safari not seeming to support transforms */
+	@apply absolute  top-1/2;
+	transform: translateY(-50%);
+}
+
+.shadow {
+	box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.tween {
+	@apply transition;
+	transition-duration: 0.4s;
+	transition-timing-function: ease;
+}
+
 /* Boost rem size on large screens */
 
 html {
@@ -30,4 +58,70 @@ html {
 
 .padded {
 	@apply p-4 md:p-8;
+}
+
+/* Column unit spacings (1/18 vw) */
+.col-padded {
+	@apply p-[theme(spacing.singlecol)];
+}
+.col-padded-2 {
+	@apply p-[theme(spacing.doublecol)];
+}
+
+.col-pt {
+	@apply pt-[theme(spacing.singlecol)];
+}
+.col-pt-1\/2 {
+	@apply pt-[theme(spacing.halfcol)];
+}
+.col-pb-1\/2 {
+	@apply pb-[theme(spacing.halfcol)];
+}
+.col-pl-1\/2 {
+	@apply pl-[theme(spacing.halfcol)];
+}
+.col-pr-1\/2 {
+	@apply pr-[theme(spacing.halfcol)];
+}
+
+.col-pt-2 {
+	@apply pt-[theme(spacing.doublecol)];
+}
+.col-pb-2 {
+	@apply pb-[theme(spacing.doublecol)];
+}
+.col-pl-2 {
+	@apply pl-[theme(spacing.doublecol)];
+}
+.col-pr-2 {
+	@apply pr-[theme(spacing.doublecol)];
+}
+
+/* Aspects */
+.fluid {
+	@apply absolute inset-0;
+}
+.window {
+	@apply relative;
+	width: 100vw;
+	height: 100vh;
+}
+.ratio-square {
+	@apply relative aspect-square;
+}
+
+.ratio-video {
+	@apply relative aspect-video;
+}
+
+.ratio-portrait {
+	@apply relative aspect-[4/6];
+}
+
+.ratio-landscape {
+	@apply relative aspect-[6/4];
+}
+
+.ratio-story {
+	@apply relative aspect-[9/16];
 }

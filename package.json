@@ -25,6 +25,7 @@
 		"@barba/core": "2.9.7",
 		"alpinejs": "3.10.5",
 		"gsap": "3.9.1",
-		"js-beautify": "^1.14.7"
+		"js-beautify": "^1.14.7",
+		"swiper": "^8.4.5"
 	}
 }

@@ -14,15 +14,26 @@ Toggle a view between different breakpoint sizes
 
 Example Usage:
 ---------------
+
+Using alpine inside the block (prerender) -  default
+-------------------------------------------------------
+
 <div x-data="code">
 	<h1>This html will be rendered</h1>
 	<p>As a pre-formatted code block</p>
 	<div x-text="It parses Alpine before it generates the HTML, so this will show as the browser renders it!"></div>
 </div>
 
-<pre><code x-data x-init="() => $nextTick(()=>$el.innerHTML = $refs.styles.innerHTML.replace(/[\u00A0-\u9999<>\&]/g, function(i) {
-   return '&#'+i.charCodeAt(0)+';';
-}).replace(/\n/gi,'NEWLINE').replace(/\s+/gi,' ').replace(/NEWLINE/gi,'\n')).replace(/^\n/,'')"></code></pre>
+
+Passing code into html attribute
+-------------------------------------------------------
+<div x-data="code" data-html='<span>This code will be output verbatim</span>'></div>
+
+
+Referencing another element by selector
+-------------------------------------------------------
+<div x-data="code" data-from="#Selector"></div>
+
 
 */
 
@@ -134,7 +145,10 @@ init(() => {
 					? document.querySelector(this.$el.dataset.from)
 					: this.$el;
 
-				this.origHTML = this.cleanAlpine($ref.innerHTML);
+				let htmlText = this.$el.dataset.html;
+				this.origHTML = htmlText
+					? htmlText
+					: this.cleanAlpine($ref.innerHTML);
 				this.$el.innerHTML = template;
 				this.storeHTML(() => {});
 			});

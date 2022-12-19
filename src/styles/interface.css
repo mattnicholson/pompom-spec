@@ -1,7 +1,7 @@
 .icon {
 	@apply font-icon w-[40px] h-[40px] text-[20px] relative;
 	&:after {
-		@apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2;
+		@apply abs-center;
 		content: attr(data-icon);
 	}
 }
@@ -10,7 +10,7 @@
 	@apply w-[40px] h-[40px] relative;
 
 	svg {
-		@apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2;
+		@apply abs-center;
 	}
 }
 

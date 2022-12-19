@@ -5,6 +5,9 @@
 .heading-spacing {
 	letter-spacing: -0.03em;
 }
+.type-spec {
+	@apply font-mono text-[12px];
+}
 
 /* Primary */
 .type-primary-sm {
@@ -73,10 +76,14 @@
 }
 
 .type-button {
-	@apply type-primary-sm text-center cursor-pointer inline-block border border-current border-[2px] grow-0 flex-initial self-start;
+	@apply tween type-primary-sm text-center cursor-pointer inline-block border border-current border-[2px] grow-0 flex-initial self-start;
 	padding: 0.65em 2em;
 	padding-bottom: 0.6em;
 	line-height: 100%;
+
+	&:hover {
+		@apply bg-white border-transparent text-off-black;
+	}
 }
 
 .type-shortquote-title {
@@ -87,7 +94,8 @@
 	@apply type-heading relative flex-initial self-start;
 	max-width: 9em;
 	&:before {
-		@apply absolute top-0 left-0 -translate-x-[110%];
+		@apply absolute top-0 left-0;
+		transform: translateX(-110%);
 		content: "“";
 	}
 
@@ -121,6 +129,7 @@
 
 	&:after {
 		@apply inline-block -translate-x-[70%];
+		transform: translateX(70%);
 		content: "”";
 	}
 }

@@ -12,6 +12,9 @@ import "./js/state/page";
 import "./js/state/darkMode";
 import "./js/state/route";
 
+// Site - (app-specific) display elements tightly coupled to the site
+import "./js/site/blocks";
+
 // Components - (app-agnostic) components that react to props in a consistent way
 import "./js/components/transitionText";
 import "./js/components/dropdown";
@@ -19,6 +22,8 @@ import "./js/components/image";
 import "./js/components/iframe";
 import "./js/components/breakpointSwitcher";
 import "./js/components/code";
+import "./js/components/parallax";
+import "./js/components/swiper";
 
 // App
 ready(() => {

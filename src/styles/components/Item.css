@@ -1,0 +1,151 @@
+/* Items */
+
+.Item {
+	@apply relative;
+
+	h1 {
+		@apply type-heading;
+		max-width: 8em;
+	}
+
+	h2 {
+		@apply type-subhead;
+	}
+
+	h3 {
+		@apply type-eyebrow;
+	}
+
+	p {
+		@apply type-body;
+		max-width: 16em;
+	}
+
+	.Item-links {
+		@apply col-pt-1/2;
+		a {
+			@apply type-button;
+		}
+	}
+
+	.Item-body {
+		@apply vstack col-padded;
+		padding-bottom: theme(spacing.doublecol);
+		@media screen(md) {
+			padding-bottom: theme(spacing.singlecol);
+		}
+	}
+
+	[data-align="centre"] &,
+	&[data-align="centre"] {
+		text-align: center;
+
+		.Item-body > * {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	[data-align="right"] &,
+	&[data-align="right"] {
+		text-align: right;
+
+		.Item-body > * {
+			margin-left: auto;
+		}
+	}
+
+	[data-align="left"] &,
+	&[data-align="left"] {
+		text-align: left;
+
+		.Item-body > * {
+			margin-right: auto;
+		}
+	}
+
+	&[data-color="light"] {
+		@apply text-page;
+	}
+}
+
+.Item--default {
+	@apply flex flex-col md:flex-row gap-4 md:gap-0;
+
+	.Item-media {
+		@apply overflow-hidden relative w-full md:w-[50%] h-[50vh] md:h-[100vh];
+	}
+
+	.Item-body {
+		@apply relative w-full md:w-[50%];
+	}
+}
+
+.Item--textLeft {
+	.Item-media {
+		@apply md:order-2;
+	}
+	.Item-body {
+		@apply md:order-1;
+	}
+}
+
+.Item--hero {
+	.Item-body {
+		@apply z-30 absolute bottom-0 left-0 w-full md:w-[80%] col-pl-2 col-pr-2;
+		/*text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);*/
+
+		.Item-links {
+			text-shadow: none;
+		}
+	}
+
+	&:after {
+		@apply z-20 block absolute w-full h-[50%] left-0 bottom-0;
+		content: "";
+		opacity: 0.9;
+		background: linear-gradient(
+			0deg,
+			rgba(246, 234, 227, 1) 0%,
+			rgba(246, 234, 227, 0) 100%
+		);
+	}
+
+	&[data-color="light"] {
+		&:after {
+			@apply z-20 block absolute w-full h-[50%] left-0 bottom-0;
+			content: "";
+			opacity: 0.54;
+			background: linear-gradient(
+				0deg,
+				rgba(0, 0, 0, 1) 0%,
+				rgba(0, 0, 0, 0) 100%
+			);
+		}
+	}
+
+	[data-align="centre"] &,
+	&[data-align="centre"] {
+		.Item-body {
+			@apply x-center;
+		}
+	}
+
+	[data-align="right"] &,
+	&[data-align="right"] {
+		.Item-body {
+			@apply left-auto right-0;
+		}
+	}
+
+	[data-align="left"] &,
+	&[data-align="left"] {
+		.Item-body {
+			@apply left-0;
+		}
+	}
+
+	.Item-media {
+		@apply z-10 window overflow-hidden;
+	}
+}

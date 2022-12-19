@@ -11,6 +11,13 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			spacing: {
+				/* 18 columns */
+				singlecol: "5.56vw",
+				doublecol: "11vw",
+				halfcol: "2.78vw",
+			},
+
 			colors: {
 				page: "#F8EAE2",
 				pink: "#FDD5D5",

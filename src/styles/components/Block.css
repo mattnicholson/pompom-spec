@@ -1,0 +1,23 @@
+/* Blocks */
+
+.Block {
+	@apply relative;
+}
+
+/*
+
+Divider
+-------------
+style: rule || spacer
+
+*/
+.Block[data-type="divider"] {
+	&[data-style="rule"] {
+		border-top: 1px solid;
+		opacity: 0.5;
+	}
+
+	&[data-style="spacer"] {
+		padding: theme(spacing.singlecol) 0;
+	}
+}

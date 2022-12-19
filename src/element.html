@@ -13,14 +13,242 @@
 	<body x-data data-barba="wrapper">
 		<div data-barba="container" data-barba-namespace="home">
 			<div x-data x-effect="$store.route.update(window.location.href)">
-				<template x-if="$store.route.match('images')">
-					<div
-						class="Image"
-						x-data="image"
-						x-bind="lazy"
-						data-src="/img/unsplash.jpg"
-					></div>
+				<template x-if="$store.route.match('page')">
+					<div x-data="blocks" data-codeview="false"></div>
 				</template>
+				<template x-if="$store.route.match('blocks')">
+					<div>
+						<div class="padded">
+							<div
+								class="border-t-[2px] border-off-black pt-4 pb-8"
+							>
+								<div class="type-heading">Blocks</div>
+							</div>
+						</div>
+						<div x-data="blocks" data-codeview="true"></div>
+					</div>
+				</template>
+				<template x-if="$store.route.match('images')">
+					<div class="padded">
+						<div class="border-t-[2px] border-off-black pt-4 pb-8">
+							<div class="type-heading">Images</div>
+						</div>
+
+						<div
+							x-data="code"
+							class="code"
+							data-html='<div class="window || ratio-square || ratio-video || ratio-story || ratio-portrait || ratio-landscape"><div
+											class="Image || fluid overflow-hidden"
+											x-data="image"
+											x-bind="lazy"
+											data-src="/path/to/image.jpg"
+											data-fit="contain || cover"
+										></div></div>'
+						></div>
+
+						<div
+							class="padded grid grid-cols-2 md:grid-cols-4 gap-4"
+							x-data="{images:[
+							{
+								
+								src : '/img/pompom-01.jpg'
+							},
+							{
+								
+								src : '/img/pompom-02.jpg'
+							},
+							{
+								
+								src : '/img/pompom-03.jpg'
+							},
+							{
+								
+								src : '/img/pompom-04.jpg'
+							},
+							{
+								
+								src : '/img/pompom-05.jpg'
+							},
+							{
+								
+								src : '/img/pompom-06.jpg'
+							},
+							{
+								
+								src : '/img/pompom-07.jpg'
+							},
+							{
+								
+								src : '/img/pompom-08.jpg'
+							},
+							{
+								
+								src : '/img/pompom-09.jpg'
+							},
+							{
+								
+								src : '/img/pompom-10.jpg'
+							},
+							{
+								
+								src : '/img/product-01.jpg'
+							},
+							{
+								
+								src : '/img/product-02.jpg'
+							},
+							{
+								
+								src : '/img/product-03.jpg'
+							},
+							{
+								
+								src : '/img/product-04.jpg'
+							},
+							{
+								
+								src : '/img/product-05.jpg'
+							},
+							{
+								
+								src : '/img/gallery-01.jpg'
+							},
+							{
+								
+								src : '/img/gallery-02.jpg'
+							},
+							{
+								
+								src : '/img/category-01.jpg'
+							},
+							{
+								
+								src : '/img/category-02.jpg'
+							},
+							{
+								
+								src : '/img/category-03.jpg'
+							},
+							{
+								
+								src : '/img/category-04.jpg'
+							},
+							{
+								
+								src : '/img/blog-01.jpg'
+							},
+							{
+								
+								src : '/img/blog-02.jpg'
+							},
+							{
+								
+								src : '/img/gallery-01.jpg'
+							},
+							{
+								
+								src : '/img/gallery-02.jpg'
+							},
+							{
+								
+								src : '/img/gallery-01.jpg'
+							},
+							{
+								
+								src : '/img/how-01.jpg'
+							},
+							{
+								
+								src : '/img/how-02.jpg'
+							},
+							{
+								
+								src : '/img/how-03.jpg'
+							},
+							{
+								
+								src : '/img/how-04.jpg'
+							},
+							{
+								
+								src : '/img/illustration-01.jpg'
+							},
+							{
+								
+								src : '/img/illustration-02.jpg'
+							},
+							{
+								
+								src : '/img/illustration-03.jpg'
+							},
+							{
+								
+								src : '/img/illustration-04.png',
+								fit : 'contain'
+							},
+							{
+								
+								src : '/img/location-uk.png',
+								fit : 'contain'
+							},
+							{
+								
+								src : '/img/location-usa.png',
+								fit : 'contain'
+							},
+							{
+								
+								src : '/img/location-row.png',
+								fit : 'contain'
+							},
+							{
+								
+								src : '/img/magazine-01.jpg'
+							},
+							{
+								
+								src : '/img/magazine-02.jpg'
+							},
+							{
+								
+								src : '/img/social-01.jpg'
+							},
+							{
+								
+								src : '/img/social-02.jpg'
+							},
+							{
+								
+								src : '/img/social-03.jpg'
+							},
+							{
+								
+								src : '/img/social-04.jpg'
+							}
+
+							]}"
+						>
+							<template x-for="img in images">
+								<div class="text-center pb-8">
+									<div class="ratio-square mb-4">
+										<div
+											class="fluid overflow-hidden"
+											x-data="image"
+											x-bind="lazy"
+											:data-src="img.src"
+											:data-fit="!img.fit ? 'cover' : img.fit"
+										></div>
+									</div>
+									<div
+										class="type-spec"
+										x-text="img.src"
+									></div>
+								</div>
+							</template>
+						</div>
+					</div>
+				</template>
+
 				<template x-if="$store.route.match('icons')">
 					<div class="padded">
 						<div class="border-t-[2px] border-off-black pt-4 pb-8">
@@ -829,13 +1057,69 @@
 									></div>
 								</div>
 							</div>
+
+							<div
+								class="grid grid-cols-4 items-center border-t-[1px] border-off-black pt-2 pb-2"
+							>
+								<div id="Icon_Pin">
+									<div class="svg-icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink"
+											width="20"
+											height="20"
+											viewBox="0 0 20 20"
+										>
+											<defs>
+												<clipPath id="clip-Icon_Pin">
+													<rect
+														width="20"
+														height="20"
+													/>
+												</clipPath>
+											</defs>
+											<g
+												id="Icon_Pin"
+												clip-path="url(#clip-Icon_Pin)"
+											>
+												<g
+													id="push-pin-svgrepo-com"
+													transform="translate(-74.004 3)"
+												>
+													<g
+														id="Group_167"
+														data-name="Group 167"
+														transform="translate(79.004)"
+													>
+														<path
+															id="Path_46"
+															data-name="Path 46"
+															d="M87.06,7.335v-5.5A1.831,1.831,0,0,0,85.24,0H82.768a1.831,1.831,0,0,0-1.821,1.837v5.5A2.862,2.862,0,0,0,79,10.048v.306h4.7V15h.607V10.354H89v-.306A2.861,2.861,0,0,0,87.06,7.335Zm-5.506-5.5A1.221,1.221,0,0,1,82.768.612H85.24a1.221,1.221,0,0,1,1.214,1.225V7.188h-4.9ZM79.631,9.742A2.238,2.238,0,0,1,81.839,7.8h4.329a2.239,2.239,0,0,1,2.208,1.942Z"
+															transform="translate(-79.004)"
+														/>
+													</g>
+												</g>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div>Pin</div>
+								<div></div>
+								<div class="place-self-end">
+									<div
+										class="code code-flush max-w-sm"
+										x-data="code"
+										data-from="#Icon_Pin"
+									></div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</template>
 				<template x-if="$store.route.match('type')">
 					<div class="padded">
 						<div
-							class="border-t-[2px] border-b-[1px] border-off-black pt-4 pb-8 mb-4"
+							class="border-t-[2px] border-off-black pt-4 pb-8 mb-4"
 						>
 							<div class="type-heading">Typography</div>
 						</div>

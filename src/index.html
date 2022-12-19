@@ -78,6 +78,22 @@
 						>Images</a
 					>
 				</li>
+				<li>
+					<a
+						x-data
+						:class="$store.route.match('blocks') && 'active'"
+						href="./?p=blocks"
+						>Blocks</a
+					>
+				</li>
+				<li>
+					<a
+						x-data
+						:class="$store.route.match('page') && 'active'"
+						href="./?p=page"
+						>Page</a
+					>
+				</li>
 			</ul>
 		</nav>
 		<main>
@@ -92,6 +108,42 @@
 								x-data
 								x-effect="$store.page.set('Specification')"
 							></div>
+						</div>
+					</template>
+					<template x-if="$store.route.match('page')">
+						<div>
+							<div
+								x-data
+								x-effect="$store.page.set('Page')"
+							></div>
+
+							<div
+								x-data="breakpointSwitcher"
+								data-src="./element.html?p=page"
+							></div>
+						</div>
+					</template>
+					<template x-if="$store.route.match('blocks')">
+						<div>
+							<div
+								x-data
+								x-effect="$store.page.set('Blocks')"
+							></div>
+
+							<div
+								x-data="breakpointSwitcher"
+								data-src="./element.html?p=blocks"
+							></div>
+
+							<!--
+							<iframe
+								x-data="iframe"
+								x-bind="lazy"
+								data-src="./element.html?p=images"
+								width="800"
+								height="400"
+							></iframe>
+							-->
 						</div>
 					</template>
 					<template x-if="$store.route.match('images')">
