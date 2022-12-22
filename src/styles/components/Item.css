@@ -36,8 +36,8 @@
 		}
 	}
 
-	[data-align="centre"] &,
-	&[data-align="centre"] {
+	[data-align-text="centre"] &,
+	&[data-align-text="centre"] {
 		text-align: center;
 
 		.Item-body > * {
@@ -46,8 +46,8 @@
 		}
 	}
 
-	[data-align="right"] &,
-	&[data-align="right"] {
+	[data-align-text="right"] &,
+	&[data-align-text="right"] {
 		text-align: right;
 
 		.Item-body > * {
@@ -55,8 +55,8 @@
 		}
 	}
 
-	[data-align="left"] &,
-	&[data-align="left"] {
+	[data-align-text="left"] &,
+	&[data-align-text="left"] {
 		text-align: left;
 
 		.Item-body > * {
@@ -78,6 +78,40 @@
 
 	.Item-body {
 		@apply relative w-full md:w-[50%];
+	}
+
+	@media screen(md) {
+		[data-align-vertical="top"] & {
+			align-items: flex-start;
+		}
+
+		[data-align-vertical="middle"] & {
+			align-items: center;
+		}
+
+		[data-align-vertical="bottom"] & {
+			align-items: flex-end;
+		}
+	}
+}
+
+.Item--textRight,
+.Item--textLeft,
+.Item--hero {
+	.Item-body {
+		@apply stagger-children;
+		& > * {
+			opacity: 0;
+		}
+	}
+
+	[data-visibility="visible"] & {
+		.Item-body {
+			@apply stagger-children-in;
+			& > * {
+				opacity: 1;
+			}
+		}
 	}
 }
 
@@ -124,22 +158,22 @@
 		}
 	}
 
-	[data-align="centre"] &,
-	&[data-align="centre"] {
+	[data-align-text="centre"] &,
+	&[data-align-text="centre"] {
 		.Item-body {
 			@apply x-center;
 		}
 	}
 
-	[data-align="right"] &,
-	&[data-align="right"] {
+	[data-align-text="right"] &,
+	&[data-align-text="right"] {
 		.Item-body {
 			@apply left-auto right-0;
 		}
 	}
 
-	[data-align="left"] &,
-	&[data-align="left"] {
+	[data-align-text="left"] &,
+	&[data-align-text="left"] {
 		.Item-body {
 			@apply left-0;
 		}

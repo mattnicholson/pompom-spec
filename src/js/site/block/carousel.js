@@ -1,10 +1,10 @@
 export const template = `
 <template x-if="block">
 	<div>
-		<div x-data="swiper" :data-slides='JSON.stringify(block.blocks)'>
+		<div class="Swiper" x-data="swiper" :data-slides='JSON.stringify(block.blocks)'>
 
 		    <template>
-				<article class="Item Item--hero" :data-color="slide.color" :data-align="slide.align">
+				<article class="Item Item--hero" :data-color="slide.color" :data-align-text="slide.align">
 					<div class="Item-media">
 						<div class="fluid" x-data="parallax" :data-progress="viewportProgress">
 							<div class="Image" x-data="image" x-bind="lazy" :data-src="slide.image" data-fit="cover"></div>	

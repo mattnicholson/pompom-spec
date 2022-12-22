@@ -1,5 +1,9 @@
+.icon-size {
+	@apply relative w-[40px] h-[40px] text-[20px] xl:w-[2.5rem] xl:h-[2.5rem] xl:text-[1.25rem];
+}
+
 .icon {
-	@apply font-icon w-[40px] h-[40px] text-[20px] relative;
+	@apply font-icon icon-size;
 	&:after {
 		@apply abs-center;
 		content: attr(data-icon);
@@ -7,38 +11,9 @@
 }
 
 .svg-icon {
-	@apply w-[40px] h-[40px] relative;
+	@apply icon-size;
 
 	svg {
-		@apply abs-center;
-	}
-}
-
-.code {
-	& > div {
-		@apply bg-rose-500/5 text-rose-500 p-2 text-[12px];
-
-		&.closed {
-			@apply rounded-full;
-		}
-
-		&.open {
-			@apply rounded-xl;
-		}
-	}
-
-	.icon {
-		@apply rounded-full hover:bg-white/50;
-	}
-
-	@apply mb-8;
-
-	&.code-flush {
-		@apply mb-0;
-	}
-
-	pre code {
-		@apply block;
-		overflow-x: scroll;
+		@apply abs-center w-[20px] h-[20px] xl:w-[1.25rem] xl:h-[1.25rem];
 	}
 }

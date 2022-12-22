@@ -24,6 +24,13 @@ With codeview for each block:
 ----------------
 <div x-data="blocks" data-codeview="true"></div>
 
+From custom JSON:
+---------------
+<div
+x-data="blocks"
+data-blocks='[{"type":"item","title":"Foo","image":"/path/to/image.jpg"}]'
+></div>
+
 */
 
 const template = `
@@ -36,7 +43,7 @@ const template = `
 				</div>
 			</template>
 			<div :id="'block_'+index">
-				<div x-data="block" x-bind="watch" :data-align="block.align" :data-style="block.style" :data-type="block.type" :data-index="index" :data-content="JSON.stringify(block)">
+				<div x-data="block" x-bind="watch" :data-align="block.align || 'default'" :data-align-vertical="block.alignVertical || 'default'" :data-align-text="block.alignText || 'default'" :data-style="block.style || 'default'" :data-type="block.type" :data-index="index" :data-content="JSON.stringify(block)">
 					
 				</div>
 			</div>
@@ -59,6 +66,10 @@ init(() => {
 		codeview: false,
 		blocks: data,
 		init() {
+			// Allow custom blocks...
+			let customBlocks = this.$el.dataset.blocks;
+			if (customBlocks) this.blocks = JSON.parse(customBlocks);
+
 			this.codeview = this.$el.dataset.codeview === "true" ? true : false;
 
 			this.$nextTick(() => {
@@ -68,8 +79,8 @@ init(() => {
 	}));
 
 	Alpine.data("block", () => ({
+		hasInit: false,
 		viewportProgress: 0,
-		half: false,
 		visible: false,
 		seen: false,
 		full: false,
@@ -78,9 +89,6 @@ init(() => {
 		},
 		seenModifier() {
 			return this.seen ? "seen" : "not-seen";
-		},
-		halfModifier() {
-			return this.half ? "halfway" : "not-halfway";
 		},
 		fullModifier() {
 			return this.full ? "full" : "not-full";
@@ -116,6 +124,30 @@ init(() => {
 					}*/
 
 					onViewportProgress(({ progress }) => {
+						// Make sure everything has init
+						if (!this.hasInit) {
+							if (progress < 0.5) {
+							} else {
+								this.seen = true;
+								this.visible = true;
+							}
+							this.hasInit = true;
+						}
+
+						// Enter
+						if (progress >= 0.25) {
+							if (!this.seen) this.seen = true;
+							if (!this.visible) this.visible = true;
+						}
+
+						// Leave...
+						if (progress <= 0 && this.visible) {
+							this.visible = false;
+						}
+						if (progress >= 1 && this.visible) {
+							this.visible = false;
+						}
+
 						this.viewportProgress = progress;
 					}, progressProps);
 				}, 0);
@@ -128,6 +160,30 @@ init(() => {
 			[":class"]() {
 				return `Block`;
 			},
+			[":data-visibility"]() {
+				if (!this.hasInit) return "not-visible";
+				return this.visible ? "visible" : "not-visible";
+			},
+			[":data-seen"]() {
+				if (!this.hasInit) return "not-seen";
+				return this.seen ? "seen" : "not-seen";
+			},
+			/*["x-intersect.once"]() {
+				this.seen = true;
+			},*/
+			/*["x-intersect.half"]() {
+				if (!this.hasInit) return;
+				this.seen = true;
+				this.visible = true;
+			},
+			["x-intersect.full"]() {
+				if (!this.hasInit) return;
+				this.full = true;
+			},
+			["x-intersect:leave"]() {
+				this.visible = false;
+				this.full = false;
+			},*/
 		},
 	}));
 

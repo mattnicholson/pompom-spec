@@ -14,7 +14,12 @@
 		<div data-barba="container" data-barba-namespace="home">
 			<div x-data x-effect="$store.route.update(window.location.href)">
 				<template x-if="$store.route.match('page')">
-					<div x-data="blocks" data-codeview="false"></div>
+					<div
+						classoff="pt-[100vw] pb-[100vw]"
+						x-data="blocks"
+						data-codeview="false"
+						data-blocks-off='[{"type":"item","title":"Snoo","image":"/img/pompom-04.jpg"}]'
+					></div>
 				</template>
 				<template x-if="$store.route.match('blocks')">
 					<div>

@@ -22,6 +22,7 @@ module.exports = {
 				page: "#F8EAE2",
 				pink: "#FDD5D5",
 				"off-black": "#252525",
+				text: "#252525",
 			},
 			fontFamily: {
 				icon: ["linearicons"],
@@ -37,8 +38,8 @@ module.exports = {
 				lg: `${20 / 16}rem`,
 				xl: `${25 / 16}rem`,
 				"2xl": `${35 / 16}rem`,
-				vw: `${(70 / 1280) * 100}vw`,
-				max: `${70 / 16}rem`,
+				vw: `${(65 / 1280) * 100}vw`,
+				max: `${65 / 16}rem`,
 			},
 		},
 	},

@@ -11,8 +11,10 @@
 @import "./styles/body.css";
 @import "./styles/text.css";
 @import "./styles/interface.css";
+@import "./styles/spec.css";
 
 /* Components (composed of utils) */
 @import "./styles/components/Block.css";
 @import "./styles/components/Image.css";
 @import "./styles/components/Item.css";
+@import "./styles/components/Swiper.css";

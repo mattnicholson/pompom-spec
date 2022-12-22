@@ -1,0 +1,58 @@
+/* Swiper */
+
+.Swiper {
+	@apply relative;
+
+	.swiper {
+		.swiper-wrapper {
+			@apply relative z-30;
+		}
+
+		.swiper-button-prev,
+		.swiper-button-next {
+			@apply cursor-pointer absolute top-[48%] z-40;
+			&:after {
+				@apply absolute z-0 block shadow bg-white rounded-full fluid;
+				content: "";
+				display: block;
+				opacity: 0;
+				transition: opacity 0.3s ease, transform 0.3s ease;
+				transform: scale(0.9);
+			}
+			& > * {
+				@apply relative z-10;
+			}
+			svg {
+				path {
+					transition: fill 0.4s ease;
+					fill: theme(colors.page);
+				}
+			}
+
+			&:hover {
+				&:after {
+					opacity: 1;
+					transform: scale(1);
+				}
+				svg path {
+					fill: theme(colors.text);
+				}
+			}
+		}
+		.swiper-button-prev {
+			@apply left-[theme(spacing.halfcol)];
+			transform: translate(0, -50%);
+			& > * {
+				transform: translateX(-1%);
+			}
+		}
+
+		.swiper-button-next {
+			@apply right-[theme(spacing.halfcol)];
+			transform: translate(0, -50%);
+			& > * {
+				transform: translateX(1%);
+			}
+		}
+	}
+}

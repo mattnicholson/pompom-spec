@@ -1,0 +1,36 @@
+/* Utils */
+.spec-caption {
+	@apply font-mono rounded border border-rose-500 inline-block p-2 mb-8 text-rose-500 text-[12px];
+}
+.type-spec {
+	@apply font-mono text-[12px];
+}
+
+.code {
+	& > div {
+		@apply bg-rose-500/5 text-rose-500 p-2 text-[12px];
+
+		&.closed {
+			@apply rounded-full;
+		}
+
+		&.open {
+			@apply rounded-xl;
+		}
+	}
+
+	.icon {
+		@apply rounded-full hover:bg-white/50;
+	}
+
+	@apply mb-8;
+
+	&.code-flush {
+		@apply mb-0;
+	}
+
+	pre code {
+		@apply block;
+		overflow-x: scroll;
+	}
+}

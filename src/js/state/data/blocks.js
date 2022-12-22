@@ -1,5 +1,16 @@
 /*
 
+	Block options:
+	---------------
+	type: main behaviour
+	style: appearance modifer
+
+	align: left/right/centre control
+	alignVertical: top/middle/bottom control
+	alignText: left/right/centre control
+	
+	
+
 	Schemas:
 	----------------
 	- Item
@@ -8,9 +19,10 @@
 
 */
 
-export const data = [
+export const arr = [
 	{
 		type: "item",
+		alignVertical: "bottom",
 		style: "textRight",
 		title: "Interview with Karida Collins",
 		subtitle: "April 14, 2022",
@@ -23,6 +35,7 @@ landmark occasion.</p>`,
 	},
 	{
 		type: "item",
+		alignVertical: "middle",
 		style: "textLeft",
 		title: "New Knits",
 		subtitle: "April 14, 2022",
@@ -64,3 +77,13 @@ landmark occasion.</p>`,
 		style: "rule",
 	},
 ];
+
+export const data = arr
+	.concat(arr)
+	.concat(arr)
+	.concat(arr)
+	.concat(arr)
+	.concat(arr)
+	.concat(arr)
+	.concat(arr)
+	.concat(arr);

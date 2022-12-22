@@ -1,12 +1,7 @@
 /* Utils */
-.spec-caption {
-	@apply font-mono rounded border border-rose-500 inline-block p-2 mb-8 text-rose-500 text-[12px];
-}
+
 .heading-spacing {
 	letter-spacing: -0.03em;
-}
-.type-spec {
-	@apply font-mono text-[12px];
 }
 
 /* Primary */
@@ -21,7 +16,7 @@
 	line-height: 100%;
 }
 .type-primary-xl {
-	@apply font-primary heading-spacing text-2xl lg:text-vw xl:text-max;
+	@apply font-primary heading-spacing text-2xl md:text-vw xl:text-max;
 	line-height: 95%;
 }
 

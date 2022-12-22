@@ -34,15 +34,14 @@ init(() => {
 			gsap.set(this.$el, { y: `${pos}px` });
 		},
 		init(args) {
+			if (this.$el.dataset.hasOwnProperty("offset"))
+				this.offset = parseFloat(this.$el.dataset.offset);
+			if (this.$el.dataset.hasOwnProperty("amount"))
+				this.amount = parseFloat(this.$el.dataset.amount);
+			if (this.$el.dataset.hasOwnProperty("speed"))
+				this.speed = parseFloat(this.$el.dataset.speed);
 			onAnimationFrame(() => {
 				let p = this.$el.dataset.progress;
-
-				if (this.$el.dataset.hasOwnProperty("offset"))
-					this.offset = parseFloat(this.$el.dataset.offset);
-				if (this.$el.dataset.hasOwnProperty("amount"))
-					this.amount = parseFloat(this.$el.dataset.amount);
-				if (this.$el.dataset.hasOwnProperty("speed"))
-					this.speed = parseFloat(this.$el.dataset.speed);
 
 				if (p === null) return;
 				p = parseFloat(p);
